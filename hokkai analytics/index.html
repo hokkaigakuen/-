@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UFT-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HGAS / Hokkai Gakuen Analytics System</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" heaf="https://fonts.googleapis.com">
+    <link rel="preconnect" heaf="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"><</script>
+</head>
+
+<body>
+
+<header class="top-header">
+    <div class="logo">
+        <h1> HGU-Lab-</h1>
+        <p>Hokkai Gakuen University Lab</p>
+    </div>
+    <div class="search-area">
+    <input
+    type="text"
+    id="searchInput"
+    placeholder="選手名で検索">
+    </div>
+</header>
+
+<nav class="bottom-nav">
+    <button onclick="showPage('home')">ホーム</button>
+    <button onclick="showPage('batter')">打者</button>
+    <button onclick="showPage('pitcher')">投手</button>
+    <button onclick="showPage('ranking')">ランキング</button>
+</nav>
+
+<main id="content">
+<section id="homePage">
+<div class="card">
+<h2>HGU-Lab-へようこそ</h2>
+<p>
+csvを更新するだけで
+BASS・Rapsodo・Blastのデータを自動で表示します。
+</p>
+
+</div>
+
+<div class="grid">
+<div class="menu-card" onclick="showPage('batters')">
+<h3>打者</h3>
+<p>BASS成績</p>
+</div>
+<div class="menu-card" onclick="showPage('pitchers')">
+<h3>投手</h3>
+<p>BASS+Rapsodo</p>
+</div>
+<div class="menu-card" onclick="showPage('ranking')">
+<h3>ランキング</h3>
+<p><OPS・防御率など</p>
+</div>
+</div>
+</section>
+<section id="playerPage" style="display:nome;">
+<div class="player-header">
+    <h2 id="playerName"></h2>
+    <p id="playerTeam"></p>
+    </div>
+    <div class="card">
+        <h3>BASS成績</h3>
+        <table class="stat-table">
+        <tbody id="bassTable">
+</tbody>
+</table>
+</div>
+<div class="card">
+    <h3>Rapsodo</h3>
+    <table class="stat-table">
+    <tbody id="bassTable">
+</tbody>
+</table>
+</div>
+<div class="card">
+    <h3>Rapsodo</h3>
+    <table class="stat-table">
+        <tbody id="rapsodoTable">
+            </tbody>
+            </table>
+            </div>
+<div class="card">
+    <h3>Blast</h3>
+    <table class="stat-table">
+        <tbody id="blastTable">
+            </tbody>
+            </table>
+            </div>
+<div class="card">
+    <canvas id="playerChart"></canvas>
+    </div>
+</section>
+</main>
+<script scr="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="js/csv.js"></script>
+<script src="js/jsonLoader.js"></script>
+<script scr="js/jsonAnalyzer.js"></script>
+<script scr="js/bassAnalyzer.js"></script>
+<script scr="js/heatmap.js"></script>
+<script scr="js/chartManager.js"></script>
+<script src="js/player.js"></script>
+<script src="js/app.js"></script>
+<script src="js/sprayChart.js"></script>
+
+</body>
+</html>
+
+<button id="darkButton">
+
+🌙
+
+</button>
+
+document
+.getElementById("darkButton")
+.onclick=()=>{
+
+document.body.classList.toggle("dark");
+
+};
+
+<div class="filterBar">
+
+<select id="yearFilter"></select>
+
+<select id="tournamentFilter"></select>
+
+<select id="teamFilter"></select>
+
+<select id="handFilter"></select>
+
+<button>
+
+検索
+
+</button>
+
+</div>
+
+<div class="sidebar">
+
+<div class="logo">
+
+<img src="assets/logo.png">
+
+<h2>HGU Lab</h2>
+
+</div>
+
+<nav>
+
+<a href="index.html">🏠 Dashboard</a>
+
+<a href="players.html">👥 Players</a>
+
+<a href="teams.html">🏫 Teams</a>
+
+<a href="games.html">📅 Games</a>
+
+<a href="ranking.html">📊 Rankings</a>
+
+<a href="analytics.html">📈 Analytics</a>
+
+</nav>
+
+</div>
